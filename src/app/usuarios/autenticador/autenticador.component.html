@@ -1,0 +1,36 @@
+<div class="container">
+  <h6 >Autenticarse</h6>
+  <div class="form-group mx-sm-3 mb-2">
+    <form [formGroup]="usuarioForm" (ngSubmit)="!usuarioForm.invalid && autenticar(usuarioForm.value)">
+      <label for ="identificacion" >
+        Identificación *
+      </label>
+      <input id = "identificacion" class="form-control" formControlName="identificacion" placeholder="Identificación del usuario" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('identificacion').hasError('required') && usuarioForm.get('identificacion').touched" >
+        La identificacion es requerida</div>
+      <label for ="rol" >
+        Tipo de usuario *
+      </label>
+      <select id = "rol" class="form-control" formControlName="rol">
+        <option value="" >Seleccione</option>
+        <option value="T.I." >Tarjeta de Identidad</option>
+        <option value="C.C." >Cédula de Ciudadanía</option>
+
+      </select>
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('rol').hasError('required') && usuarioForm.get('rol').touched" >
+        El rol es requerido</div>
+      <label for ="clave" >
+        Clave *
+      </label>
+      <input id = "clave" type="password" class="form-control" formControlName="clave" placeholder="Clave de acceso" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('clave').hasError('required') && usuarioForm.get('clave').touched" >
+        la clave es requerida</div>
+      <button type="submit" id="btncrear" class="btn btn-primary" [disabled]="!usuarioForm.valid" >Validar</button>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelar()" >Cancelar</button>
+
+    </form>
+  </div>
+</div>
