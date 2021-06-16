@@ -1,0 +1,56 @@
+<app-barranav></app-barranav>
+<div class="container">
+  <h4>Listado de Usuarios</h4>
+<div class="row">
+  <div class="col-9">
+    <table id="lusuarios" class="table table-striped">
+      <thead>
+      <tr>
+        <th class="bold" id="tipiden">Tipo Identificación</th>
+        <th class="bold" id="ident">Identificación</th>
+        <th class="bold" id="nombres">Nombres</th>
+        <th class="bold" id="rol">Rol</th>
+        <th class="bold" id="estado">Estado</th>
+
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let c of usuarios">
+        <td>
+          <dl>
+            <dt></dt>
+            <dd>{{c.tipoidentificacion}}</dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dt></dt>
+            <dd>{{c.identificacion}}</dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dt></dt>
+            <dd>{{c.nombre +' '+c.apellido}}</dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dt></dt>
+            <dd>{{c.rol}}</dd>
+          </dl>
+        </td>
+        <td>
+          <dl>
+            <dt></dt>
+            <dd>{{c.estado}}</dd>
+          </dl>
+        </td>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+</div>

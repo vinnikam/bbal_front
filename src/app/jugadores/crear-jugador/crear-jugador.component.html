@@ -1,0 +1,64 @@
+<app-barranav></app-barranav>
+<div class="container">
+
+
+  <div class="form-group col-lg-4 mx-auto">
+    <h6 >Crear Jugador</h6>
+    <form [formGroup]="jugadorForm" (ngSubmit)="!jugadorForm.invalid && validar(jugadorForm.value)">
+
+      <label for ="tipoidentificacion" >
+        Tipo de identificación *
+      </label>
+      <select id = "tipoidentificacion" class="form-control" formControlName="tipoidentificacion">
+        <option value="" >Seleccione</option>
+        <option value='T.I.' >Tarjeta de identidad</option>
+        <option value='C.C.' >Cédula de Ciudadanía</option>
+      </select>
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('tipoidentificacion').hasError('required') && jugadorForm.get('tipoidentificacion').touched" >
+        La tipo identificacion es requerida</div>
+      <label for ="identificacion" >
+        Identificación *
+      </label>
+      <input id = "identificacion" class="form-control" formControlName="identificacion" placeholder="Identificación del jugador" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('identificacion').hasError('required') && jugadorForm.get('identificacion').touched" >
+        La identificacion es requerida</div>
+      <label for ="nombre" >
+        Nombres *
+      </label>
+      <input id = "nombre" class="form-control" formControlName="nombre" placeholder="nombres del jugador" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('nombre').hasError('required') && jugadorForm.get('nombre').touched" >
+        El nombre es requerido</div>
+      <label for ="apellido" >
+        Apellido *
+      </label>
+      <input id = "apellido" class="form-control" formControlName="apellido" placeholder="apellidos del jugador" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('apellido').hasError('required') && jugadorForm.get('apellido').touched" >
+        Los apellidos son requeridos</div>
+      <label for ="fnacimiento" >
+        Fecha de nacimiento *
+      </label>
+      <input  type=date id = "fnacimiento" class="form-control" formControlName="fnacimiento" placeholder="fnacimiento del jugador" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('fnacimiento').hasError('required') && jugadorForm.get('fnacimiento').touched" >
+        Los fnacimiento son requeridos</div>
+      <label for ="foto" >
+        foto *
+      </label>
+      <input id = "foto" class="form-control" formControlName="foto" placeholder="foto del jugador" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="jugadorForm.get('foto').hasError('required') && jugadorForm.get('foto').touched" >
+        Los foto son requeridos</div>
+
+
+      <button type="submit" id="btncrear" class="btn btn-primary" [disabled]="!jugadorForm.valid" >Crear</button>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelar()" >Cancelar</button>
+
+    </form>
+  </div>
+
+
+</div>

@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpErrorInterceptorService} from './interceptor/http-error-interceptor.service';
 import {UsuariosModule} from './usuarios/usuarios.module';
+import {JugadoresModule} from './jugadores/jugadores.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {UsuariosModule} from './usuarios/usuarios.module';
     AppRoutingModule,
     HttpClientModule,
     UsuariosModule,
+    JugadoresModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',

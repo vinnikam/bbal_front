@@ -6,6 +6,9 @@ const host = 'http://localhost:3001/';
 export const environment = {
   production: false,
   urlAutenticar: `${host}api/usuario/autenticar`,
+  urlUsuarios: `${host}api/usuario/`,
+  urlUsuarioCrear: `${host}api/usuario/crear`,
+  urlJugadores: `${host}api/jugador/`
 };
 
 /*

@@ -1,0 +1,61 @@
+<app-barranav></app-barranav>
+<div class="container">
+
+
+  <div class="form-group col-lg-4 mx-auto">
+    <h6 >Crear usuario</h6>
+    <form [formGroup]="usuarioForm" (ngSubmit)="!usuarioForm.invalid && validar(usuarioForm.value)">
+
+      <label for ="tipoidentificacion" >
+        Tipo de identificación *
+      </label>
+      <select id = "tipoidentificacion" class="form-control" formControlName="tipoidentificacion">
+        <option value="" >Seleccione</option>
+        <option value='T.I.' >Tarjeta de identidad</option>
+        <option value='C.C.' >Cédula de Ciudadanía</option>
+      </select>
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('tipoidentificacion').hasError('required') && usuarioForm.get('tipoidentificacion').touched" >
+        La tipo identificacion es requerida</div>
+      <label for ="identificacion" >
+        Identificación *
+      </label>
+      <input id = "identificacion" class="form-control" formControlName="identificacion" placeholder="Identificación del usuario" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('identificacion').hasError('required') && usuarioForm.get('identificacion').touched" >
+        La identificacion es requerida</div>
+      <label for ="nombre" >
+        Nombres *
+      </label>
+      <input id = "nombre" class="form-control" formControlName="nombre" placeholder="nombres del usuario" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('nombre').hasError('required') && usuarioForm.get('nombre').touched" >
+        El nombre es requerido</div>
+      <label for ="apellido" >
+        Apellido *
+      </label>
+      <input id = "apellido" class="form-control" formControlName="apellido" placeholder="apellidos del usuario" >
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('apellido').hasError('required') && usuarioForm.get('apellido').touched" >
+        Los apellidos son requeridos</div>
+      <label for ="rol" >
+        Tipo de usuario *
+      </label>
+      <select id = "rol" class="form-control" formControlName="rol">
+        <option value="" >Seleccione</option>
+        <option value="Administrador" >Administrador</option>
+        <option value="Usuario" >Usuario</option>
+        <option value="Entrenador" >Entrenador</option>
+      </select>
+      <div class="alert alert-danger alert-dismissible fade show"
+           *ngIf="usuarioForm.get('rol').hasError('required') && usuarioForm.get('rol').touched" >
+        El rol es requerido</div>
+
+      <button type="submit" id="btncrear" class="btn btn-primary" [disabled]="!usuarioForm.valid" >Crear</button>
+      <button type="button" class="btn btn-danger ml-3" (click)="cancelar()" >Cancelar</button>
+
+    </form>
+  </div>
+
+
+</div>

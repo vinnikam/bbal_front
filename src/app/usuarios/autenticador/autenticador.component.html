@@ -1,6 +1,8 @@
 <div class="container">
-  <h6 >Autenticarse</h6>
-  <div class="form-group mx-sm-3 mb-2">
+
+
+  <div class="form-group col-lg-4 mx-auto">
+    <h6 >Autenticarse</h6>
     <form [formGroup]="usuarioForm" (ngSubmit)="!usuarioForm.invalid && autenticar(usuarioForm.value)">
       <label for ="identificacion" >
         Identificación *
@@ -14,8 +16,9 @@
       </label>
       <select id = "rol" class="form-control" formControlName="rol">
         <option value="" >Seleccione</option>
-        <option value="T.I." >Tarjeta de Identidad</option>
-        <option value="C.C." >Cédula de Ciudadanía</option>
+        <option value="Administrador" >Administrador</option>
+        <option value="Usuario" >Usuario</option>
+        <option value="Entrenador" >Entrenador</option>
 
       </select>
       <div class="alert alert-danger alert-dismissible fade show"
@@ -33,4 +36,6 @@
 
     </form>
   </div>
+
+
 </div>
